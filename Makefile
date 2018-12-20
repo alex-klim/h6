@@ -5,7 +5,7 @@ CPPFLAGS = -Wall -Wpedantic -std=c++11
 all: main
 
 main:
-	g++ ${CPPFLAGS} -o main main.cpp wine.cpp
+	g++ ${CPPFLAGS} -o main main.cpp wine_private.cpp
 
 clean:
 	/bin/rm -f main

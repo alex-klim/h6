@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "wine.hpp"
-//#include "wine_private.hpp"
+//#include "wine.hpp"
+#include "wine_private.hpp"
 
 int main() {
     using std::cin;
@@ -15,7 +15,7 @@ int main() {
     int yrs{0};
     cin >> yrs;
 
-    Wine holding(lab, yrs);
+    WinePrv holding(lab, yrs);
     holding.getBottles();
     holding.show(); // print wine info
 
@@ -23,7 +23,7 @@ int main() {
     int y[kYears] = { 1993, 1995, 1998 };
     int b[kYears] = { 48, 60, 72 };
 
-    Wine more("Chianti", kYears, y, b);
+    WinePrv more("Chianti", kYears, y, b);
     more.show();
     cout << "Total bottles for " << more.label() << ": " << more.sum() << endl;
 
