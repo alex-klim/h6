@@ -2,14 +2,12 @@
 
 #include <iostream>
 
-WinePrv::WinePrv() : std::string(kDefaultName) {
-
-}
+WinePrv::WinePrv() : std::string(kDefaultName) {}
 
 WinePrv::WinePrv(const char* l, int y, const int yr[], const int bot[]) :
     std::string(l),
     PairArrayT(std::make_pair(ArrayIntT(yr, y), ArrayIntT(bot, y))),
-    ArrayIntT(y) 
+    ArrayIntT(y)
 {}
 
 WinePrv::WinePrv(const char* l, int y) :
@@ -18,7 +16,7 @@ WinePrv::WinePrv(const char* l, int y) :
     ArrayIntT(y)
 {}
 
-void WinePrv::getBottles () {
+void WinePrv::getBottles() {
     for (size_t i = 0; i < std::get<0>(*this).size(); i++) {
         int temp{0};
         std::cout << "Enter year of bottling: ";
@@ -27,6 +25,15 @@ void WinePrv::getBottles () {
         std::cout << "Enter number of bottles for " << temp << " year: ";
         std::cin >> temp;
         this->second[i] = temp;
+    }
+}
+
+void WinePrv::getAge() {
+    for (size_t i = 0; i < std::get<0>(*this).size(); i++) {
+        int temp{0};
+        std::cout << "Enter age of " << std::get<0>(*this)[i] << " bottles: ";
+        std::cin >> temp;
+        ArrayIntT::operator[](i) = temp;
     }
 }
 
@@ -44,10 +51,16 @@ int WinePrv::sum() const {
 
 void WinePrv::show() const {
     for (size_t i = 0; i < std::get<0>(*this).size(); i++) {
-        std::cout << "{" << (std::string)*this << "}: " << this->second[i] << " bottles of " << this->first[i] << " year.\n";
+        std::cout << "{" << (std::string)*this << "}: "
+            << this->second[i] << " bottles of " << this->first[i] << " year.\n";
     }
 }
 
 void WinePrv::showAge() const {
-
+    for (size_t i = 0; i < std::get<0>(*this).size(); i++) {
+        std::cout << "{" << (std::string)*this << "}: "
+            << this->first[i] << " year wine is "
+            << ArrayIntT::operator[](i)
+            << " years aged\n";
+    }
 }

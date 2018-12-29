@@ -11,6 +11,7 @@ public:
     WinePrv(const char* l, int y);
 
     void getBottles();
+    void getAge();
     std::string label() const;
     int sum() const;
     void show() const;
