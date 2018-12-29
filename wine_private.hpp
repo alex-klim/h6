@@ -1,20 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  wine_private.hpp
- *
- *    Description:  wine class with private inheritance
- *
- *        Version:  1.0
- *        Created:  12/16/2018 08:58:06 PM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Alex Klim
- *   Organization:  home
- *
- * =====================================================================================
- */
 #include <valarray>
 #include <utility>
 #include <string>
