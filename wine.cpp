@@ -10,6 +10,7 @@ Wine::Wine(const char* l, int y, const int yr[], const int bot[]) {
     }
     year_bottles_.first.resize(y);
     year_bottles_.second.resize(y);
+    age_bottles_.resize(y);
 
     for (int i = 0; i < y; i++) {
         year_bottles_.first[i] = yr[i];
@@ -25,6 +26,7 @@ Wine::Wine(const char* l, int y) {
     }
     year_bottles_.first.resize(y);
     year_bottles_.second.resize(y);
+    age_bottles_.resize(y);
 }
 
 void Wine::getBottles() {
@@ -36,6 +38,15 @@ void Wine::getBottles() {
         std::cout << "Enter number of bottles for " << temp << " year: ";
         std::cin >> temp;
         year_bottles_.second[i] = temp;
+    }
+}
+
+void Wine::getAge() {
+    for (size_t i = 0; i < age_bottles_.size(); i++) {
+        int temp{0};
+        std::cout << "Enter age of " << std::get<0>(year_bottles_)[i] << " year bottles: ";
+        std::cin >> temp;
+        age_bottles_[i] = temp;
     }
 }
 
@@ -54,12 +65,17 @@ int Wine::sum() const {
 void Wine::show() const {
     size_t i = 0;
     while (i < std::get<0>(year_bottles_).size()) {
-        std::cout << std::get<1>(year_bottles_)[i] << " bottles of "
-            << std::get<0>(year_bottles_)[i] << " year wine\n";
+        std::cout << "{" << label_ << "}: "
+            << std::get<1>(year_bottles_)[i] << " bottles of "
+            << std::get<0>(year_bottles_)[i] << " year\n";
         i++;
     }
 }
 
 void Wine::showAge() const {
-    // getouttahere
+    for (size_t i = 0; i < age_bottles_.size(); i++) {
+        std::cout << "{" << label_ << "}: "
+            << std::get<0>(year_bottles_)[i] << " year wine is "
+            << age_bottles_[i] << " years aged\n";
+    }
 }
