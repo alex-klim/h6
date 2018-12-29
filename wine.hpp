@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  wine.hpp
- *
- *    Description:  my description of wine class
- *
- *        Version:  1.0
- *        Created:  12/16/2018 12:57:33 PM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Alex Klim
- *   Organization:  home
- *
- * =====================================================================================
- */
-
 #include <iostream>
 #include <utility>
 #include <valarray>
